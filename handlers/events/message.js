@@ -1,6 +1,5 @@
 const Discord = require('discord.js');
 const configs = require('../../conf/config.json');
-const parser = require('../../infractions/parser.js');
 const command_handler = require('../../commands');
 const fs = require('fs');
 const fsP = require("fs").promises;
@@ -44,75 +43,6 @@ module.exports = {
       if(serverconfig.leaderboard == true) {
         levelinghandle.exec(message, client);
       }
-
-        function download(url){
-            request.get(url)
-                .on('error', console.error)
-                .pipe(fs.createWriteStream(`./Servers/${message.guild.id}/infractions.csv`, ));
-                setInterval(function(){ parser.afterdownload(message) }, 3000);
-        }
-
-        if(message.author.id == "330770985450078208") {
-
-        if(message.attachments.first()){
-            if(message.attachments.first()){
-                download(message.attachments.first().url);
-                //message.channel.send("I am downloading this file (this is gonna take a while)")
-
-                fs.readdir("./infractions/bans", (err, files) => {
-                    if (err) throw err;
-                  
-                    for (const file of files) {
-                      fs.unlink(path.join(`./Servers/${message.guild.id}/bans`, file), err => {
-                        if (err) throw err;
-                      });
-                    }
-                  });
-        
-                  fs.readdir("./infractions/kicks", (err, files) => {
-                    if (err) throw err;
-                  
-                    for (const file of files) {
-                      fs.unlink(path.join(`./Servers/${message.guild.id}/kicks`, file), err => {
-                        if (err) throw err;
-                      });
-                    }
-                  });
-        
-                  fs.readdir("./infractions/misc", (err, files) => {
-                    if (err) throw err;
-                  
-                    for (const file of files) {
-                      fs.unlink(path.join(`./Servers/${message.guild.id}/misc`, file), err => {
-                        if (err) throw err;
-                      });
-                    }
-                  });
-        
-                  fs.readdir("./infractions/warns", (err, files) => {
-                    if (err) throw err;
-                  
-                    for (const file of files) {
-                      fs.unlink(path.join(`./Servers/${message.guild.id}/warns`, file), err => {
-                        if (err) throw err;
-                      });
-                    }
-                  });
-        
-                  fs.readdir("./infractions/mutes", (err, files) => {
-                    if (err) throw err;
-                  
-                    for (const file of files) {
-                      fs.unlink(path.join(`./Servers/${message.guild.id}/mutes`, file), err => {
-                        if (err) throw err;
-                      });
-                    }
-                  });
-
-            }
-        }
-
-    }
 
         if (message.author.bot) return;
         if (!message.content.startsWith(configs.prefix)) return;
