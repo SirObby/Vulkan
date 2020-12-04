@@ -7,6 +7,6 @@ module.exports = {
     async run(client, member) {
 
         console.log("User joined.")
-
+ // does not work!
     }
 }
