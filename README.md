@@ -1,6 +1,6 @@
 # Vulkan
 
-Vulkan is a discord bot that was first founded by me `Sir Obsidian#2640`
+Vulkan is a discord bot that was first founded by me `Sir Obsidian#2640`\
 This version of Vulkan is very **BUGGY** So I recommend contributing!
 
 ## How to contribute
